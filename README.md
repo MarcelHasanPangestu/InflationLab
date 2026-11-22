@@ -1,2 +1,447 @@
-# InflationLab
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#ffe14d">
+<title>InflasiLab - Media Belajar Ekonomi Kelas XI</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#16121f;--bg:#d9d2ff;--pk:#ff4fa3;--ye:#ffe14d;--mi:#3ddc97;--sk:#59c3ff;--sh:5px 5px 0 var(--ink)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{font:500 17px/1.6 'Bricolage Grotesque','Trebuchet MS',system-ui,sans-serif;background:var(--bg);color:var(--ink);padding-bottom:env(safe-area-inset-bottom)}
+.bar{position:sticky;top:0;z-index:9;background:var(--ye);border-bottom:3px solid var(--ink);padding:calc(8px + env(safe-area-inset-top)) 14px 8px;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+.logo{font-weight:800;font-size:20px;color:var(--ink);text-decoration:none}
+nav{display:flex;gap:6px;overflow-x:auto;order:3;width:100%;padding-bottom:2px}
+nav a{flex:none;color:var(--ink);font-weight:700;font-size:14px;text-decoration:none;border:2px solid var(--ink);border-radius:99px;padding:1px 10px;background:#fff}
+nav a:hover{background:var(--pk)}
+.xp{flex:1;min-width:140px;max-width:300px;margin-left:auto;height:24px;border:3px solid var(--ink);border-radius:99px;background:#fff;position:relative;overflow:hidden}
+.xp i{display:block;height:100%;width:0;background:var(--mi);transition:width .5s}
+.xp span{position:absolute;inset:0;display:grid;place-items:center;font-size:12px;font-weight:800}
+section{padding:56px 0;border-bottom:3px solid var(--ink)}
+.w{max-width:880px;margin:auto;padding:0 18px}
+h1{font-size:clamp(38px,8vw,72px);line-height:1;font-weight:800;letter-spacing:-.03em;margin:14px 0 16px}
+h2{font-size:clamp(28px,5vw,44px);line-height:1.05;font-weight:800;letter-spacing:-.02em;margin:12px 0 14px}
+h3{font-size:19px;font-weight:800;margin-bottom:8px;line-height:1.3}
+p{margin-bottom:12px;max-width:68ch}
+.tag{display:inline-block;background:var(--pk);border:3px solid var(--ink);border-radius:8px;padding:2px 12px;font-weight:800;transform:rotate(-3deg);box-shadow:3px 3px 0 var(--ink)}
+.card{background:#fff;color:var(--ink);border:3px solid var(--ink);border-radius:18px;box-shadow:var(--sh);padding:18px;margin:16px 0}
+.card:nth-child(even){border-radius:6px 26px 6px 26px}
+.g{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.g .card{margin:0}
+.chip{border:3px solid var(--ink);border-radius:12px;background:#fff;padding:3px 12px;font-weight:700}
+.b{font:inherit;font-weight:800;color:var(--ink);background:var(--ye);border:3px solid var(--ink);border-radius:99px;padding:6px 16px;box-shadow:3px 3px 0 var(--ink);cursor:pointer;transition:transform .08s,box-shadow .08s}
+.b:active{transform:translate(3px,3px);box-shadow:0 0 0}
+.b.ok{background:var(--mi)}.b.no{background:var(--pk)}.b.on{background:var(--sk)}.b[disabled]{opacity:.45;cursor:default}
+:focus-visible{outline:4px solid #1f6fe5;outline-offset:3px}
+.row{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0;align-items:center}
+input[type=range]{width:100%;accent-color:var(--pk)}
+input[type=number]{font:inherit;font-weight:800;width:130px;padding:6px 10px;border:3px solid var(--ink);border-radius:10px}
+.q{border-top:3px dashed var(--ink);padding:12px 0}
+.q:first-child{border:0;padding-top:0}
+.fb{margin:8px 0 0;font-size:15px}
+.rc{font-family:ui-monospace,Menlo,Consolas,monospace;transform:rotate(1deg)}
+.rc ul{list-style:none;padding:0;margin:8px 0}
+.rc li,.tot{display:flex;justify-content:space-between;gap:10px;border-bottom:2px dotted var(--ink);padding:3px 0}
+.tot{font-weight:800;border:0;font-size:18px}
+.stamp{display:inline-block;color:#c4145f;border:4px solid #c4145f;border-radius:10px;padding:4px 12px;font-weight:800;transform:rotate(-4deg);margin:10px 0 0}
+.pop{animation:pop .4s}
+@keyframes pop{0%{transform:rotate(-4deg) scale(1.7);opacity:.2}100%{transform:rotate(-4deg) scale(1);opacity:1}}
+.ch{display:flex;align-items:flex-end;gap:3px;height:200px;border-bottom:3px solid var(--ink)}
+.ch button{flex:1;min-width:0;padding:0;height:var(--h);background:var(--c);border:2px solid var(--ink);border-bottom:0;border-radius:5px 5px 0 0;cursor:pointer}
+.yr{display:flex;gap:3px;font-size:10px}.yr span{flex:1;text-align:center}
+#boss{background:var(--ink);color:#fff}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+<style>
+body{padding-bottom:96px}
+.dock{position:fixed;bottom:calc(10px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);display:flex;gap:4px;background:var(--ink);padding:5px;border-radius:99px;z-index:9;max-width:96vw}
+.dock a{color:#fff;text-decoration:none;font-weight:800;font-size:14px;padding:4px 12px;border-radius:99px;white-space:nowrap}
+.dock a:hover,.dock a#dl{background:var(--pk);color:var(--ink)}
+.toast{position:fixed;top:96px;left:50%;transform:translate(-50%,-20px);opacity:0;background:var(--pk);border:3px solid var(--ink);border-radius:14px;padding:8px 16px;font-weight:800;z-index:20;transition:.3s;pointer-events:none;text-align:center}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.bub{max-width:82%;padding:8px 14px;border-radius:18px 18px 18px 4px;background:#fff;border:3px solid var(--ink);margin:8px 0}
+.bub.me{margin-left:auto;background:var(--mi);border-radius:18px 18px 4px 18px}
+.bub small{display:block;font-weight:800}
+details{border:3px solid var(--ink);border-radius:12px;background:#fff;padding:10px 14px;margin:10px 0}
+summary{font-weight:800;cursor:pointer}
+.lock{opacity:.4;pointer-events:none;filter:grayscale(1)}
+.tb{width:100%;border-collapse:collapse}.tb td,.tb th{padding:4px;text-align:left}.kb{width:110px!important}
+.mb{height:12px;border:2px solid var(--ink);border-radius:9px;background:#fff;overflow:hidden}
+.mb i{display:block;height:100%;background:var(--mi)}
+.av{width:84px;height:84px;border-radius:50%;background:var(--ye);border:3px solid var(--ink);display:grid;place-items:center;font-size:30px;font-weight:800;box-shadow:3px 3px 0 var(--ink)}
+@media print{body *{visibility:hidden}#rapor,#rapor *{visibility:visible}#rapor{position:absolute;left:0;top:0;width:100%}.dock,.toast{display:none}}
+</style>
+<style>
+body{background-image:radial-gradient(#16121f26 1.5px,transparent 1.5px);background-size:22px 22px}
+h1{text-shadow:4px 4px 0 var(--pk)}
+#top{position:relative;overflow:hidden}#top .w{position:relative;z-index:1}
+.fl{position:absolute;font-size:36px;animation:fl 4s ease-in-out infinite;pointer-events:none}
+@keyframes fl{50%{transform:translateY(-14px) rotate(10deg)}}
+.mq{background:var(--ink);color:var(--ye);border-bottom:3px solid var(--ink);overflow:hidden;white-space:nowrap;font-weight:800;padding:6px 0}
+.mq div{display:inline-block;animation:mq 28s linear infinite}
+@keyframes mq{to{transform:translateX(-50%)}}
+#sp{position:fixed;top:0;left:0;height:5px;width:0;background:linear-gradient(90deg,var(--pk),var(--ye),var(--mi),var(--sk));z-index:30}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .5s,transform .5s}
+.rv.in{opacity:1;transform:none}.rv.in.lock{opacity:.4}.rc.rv.in{transform:rotate(1deg)}
+.b:hover{transform:translate(-1px,-2px) rotate(-1.5deg);box-shadow:4px 5px 0 var(--ink)}
+.b:hover:active{transform:translate(3px,3px);box-shadow:none}
+.tag:hover{transform:rotate(3deg) scale(1.08)}
+.fx{position:fixed;z-index:40;font-weight:800;pointer-events:none;animation:fx .9s ease-out forwards;background:var(--mi);border:3px solid var(--ink);border-radius:99px;padding:2px 10px}
+@keyframes fx{to{transform:translateY(-60px);opacity:0}}
+.sh{animation:sh .35s}@keyframes sh{25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+ul{padding-left:20px;margin:6px 0 10px}li{margin:4px 0}
+.tb td,.tb th{border-bottom:2px dotted var(--ink)}
+@media print{.rv{opacity:1!important;transform:none!important}}
+</style>
+</head>
+<body>
+<header class="bar"><a class="logo" href="#top">💸 InflasiLab</a>
+<div class="xp" role="progressbar" aria-label="Progres XP"><i id="xp"></i><span id="xpt">0 XP</span></div>
+<nav><a href="#l1">Apa itu?</a><a href="#l2">Penyebab</a><a href="#l3">Jenis</a><a href="#l4">Hitung</a><a href="#l5">Dampak</a><a href="#l6">Solusi</a><a href="#boss">Boss battle</a></nav></header>
+
+<section id="top"><div class="w"><span class="tag">Media belajar Ekonomi kelas XI</span>
+<h1>Uang jajan kok cepet abis? Itu namanya inflasi.</h1>
+<p>Barangnya sama, harganya naik, uangmu segitu-gitu aja. Coba sendiri di struk ini: atur laju inflasi, lalu maju tahun demi tahun.</p>
+<div class="card rc"><h3>Struk belanja kamu (contoh ilustrasi)</h3><ul id="rl"></ul>
+<div class="tot"><span>Total di tahun ke-<span id="yr">0</span></span><span id="tt"></span></div>
+<label>Inflasi per tahun: <b id="rtv"></b><input id="rt" type="range" min="1" max="20" value="5"></label>
+<div class="row"><button class="b" id="fw">Maju 1 tahun ⏩</button><button class="b" id="rs" style="background:#fff">Reset</button></div>
+<p class="stamp" id="sm"></p></div>
+<p>Scroll ke bawah, selesaikan 6 level plus boss battle, dan kumpulkan XP di bar atas ⬆️</p></div></section>
+
+<div class="mq" aria-hidden="true"><div>🧾 harga naik 📈 uang jajan tipis 💸 inflasi = nilai uang turun 📉 gaji tetap? waspada 👀 stop panic, mulai paham 🧠 🧾 harga naik 📈 uang jajan tipis 💸 inflasi = nilai uang turun 📉 gaji tetap? waspada 👀 stop panic, mulai paham 🧠 🧾 harga naik 📈 uang jajan tipis 💸 inflasi = nilai uang turun 📉 gaji tetap? waspada 👀 stop panic, mulai paham 🧠 </div><div>🧾 harga naik 📈 uang jajan tipis 💸 inflasi = nilai uang turun 📉 gaji tetap? waspada 👀 stop panic, mulai paham 🧠 🧾 harga naik 📈 uang jajan tipis 💸 inflasi = nilai uang turun 📉 gaji tetap? waspada 👀 stop panic, mulai paham 🧠 🧾 harga naik 📈 uang jajan tipis 💸 inflasi = nilai uang turun 📉 gaji tetap? waspada 👀 stop panic, mulai paham 🧠 </div></div>
+<section id="peta" style="background:#fff"><div class="w"><span class="tag">Peta misi</span><h2>Tujuan belajar dan cara mainnya</h2>
+<p>Setelah menyelesaikan media ini, kamu bisa:</p>
+<div class="row"><span class="chip">Menjelaskan konsep dan tiga kriteria inflasi</span><span class="chip">Menganalisis penyebab dan cara mengatasinya</span><span class="chip">Menghitung laju inflasi dan menentukan jenisnya</span></div>
+<div class="card"><h3>Sistem EXP = evaluasi belajarmu</h3><p>Setiap jawaban benar di semua kuis memberi +10 EXP, dan tiap soal hanya bisa dijawab sekali, jadi baca materinya dulu baru jawab. Nilai akhirmu dihitung dari EXP, lalu dilaporkan di Rapor EXP di bagian bawah.</p>
+<div class="row"><span class="chip">Nilai = EXP ÷ EXP maksimum × 100</span><span class="chip">Target lulus: nilai 75 (Level 6)</span></div></div></div></section>
+<section id="l1" style="background:#fff3a8"><div class="w"><span class="tag">Level 1</span><h2>Apa sih inflasi itu?</h2>
+<p>Menurut BPS, inflasi adalah kecenderungan naiknya harga barang dan jasa pada umumnya yang berlangsung terus-menerus dalam suatu perekonomian. Harga naik berarti nilai uang turun: dengan uang yang sama, barang yang bisa dibeli makin sedikit.</p>
+<div class="g"><div class="card" style="background:var(--sk)"><h3>📈 Harga naik</h3><p>Harga barang dan jasa meningkat, jadi nilai uang menurun.</p></div>
+<div class="card" style="background:var(--mi)"><h3>🧺 Bersifat umum</h3><p>Terjadi pada banyak barang dan jasa. Naik di satu atau dua jenis saja belum disebut inflasi.</p></div>
+<div class="card" style="background:var(--pk)"><h3>♾️ Terus-menerus</h3><p>Bukan sesaat. Inflasi dihitung minimal bulanan, kenaikan harian belum masuk hitungan.</p></div></div>
+<div class="card"><h3>Cek fakta: inflasi atau bukan?</h3><div id="g1"></div></div></div></section>
+
+<section id="sq1" style="background:#fff"><div class="w"><span class="tag">Side quest 1</span><h2>Latihan konsep</h2><p>Jawab dari materi Level 1 ya.</p><div class="card"><div id="g1b"></div></div></div></section>
+<section id="l2" style="background:#b8f5d6"><div class="w"><span class="tag">Level 2</span><h2>Kenapa harga bisa naik terus?</h2>
+<div class="row"><button class="b on" data-t="0">Tarikan permintaan</button><button class="b" data-t="1">Kenaikan biaya</button></div>
+<div class="card" id="tp"></div>
+<div class="card" style="background:#fff"><h3>Spill penyebabnya lebih dalam 🔍</h3>
+<div class="g"><div><h3>🧲 Tarikan permintaan (demand pull)</h3><ul><li>Pengeluaran pemerintah naik, sehingga <b>permintaan agregat</b> (total permintaan seluruh masyarakat akan barang dan jasa) ikut naik.</li><li>Pendapatan naik dan lapangan kerja banyak, jadi belanja masyarakat meningkat.</li><li>Momen hari besar: Lebaran, Natal, Tahun Baru.</li></ul><p>Alurnya: permintaan naik, barang kurang, harga naik.</p></div>
+<div><h3>🧱 Kenaikan biaya (cost push)</h3><ul><li>BBM dan tarif listrik naik.</li><li>Upah naik.</li><li>Rupiah melemah (depresiasi), jadi bahan baku impor jadi mahal.</li><li>Bencana alam mengganggu distribusi.</li></ul><p>Alurnya: biaya produksi naik, harga jual naik.</p></div></div></div>
+<div class="card"><h3>Pemanasan: klasifikasikan dulu 🔥</h3><div id="g2b"></div></div>
+<div class="card"><h3>Tebak penyebabnya!</h3><div id="g2"></div></div></div></section>
+
+<section id="l3"><div class="w"><span class="tag">Level 3</span><h2>Jenis-jenis inflasi</h2>
+<p>Inflasi digolongkan berdasarkan tingkat keparahan, penyebab, dan asalnya. Geser meter ini untuk melihat kategori keparahannya.</p>
+<div class="card" id="mc"><h3 id="mt"></h3><input id="mr" type="range" min="0" max="150" value="8" aria-label="Laju inflasi per tahun"></div>
+<div class="row"><span class="chip">Ringan: di bawah 10%</span><span class="chip">Sedang: 10% sampai 30%</span><span class="chip">Berat: 30% sampai 100%</span><span class="chip">Hiperinflasi: di atas 100%</span></div>
+<div class="g"><div class="card" style="background:var(--pk)"><h3>Berdasarkan penyebab</h3><p>Inflasi tarikan permintaan (demand pull) dan inflasi kenaikan biaya produksi (cost push). Buku semester 2 menambah inflasi leher botol (bottleneck inflation): kapasitas produksi sudah mentok, tetapi permintaan masih banyak.</p></div>
+<div class="card" style="background:var(--sk)"><h3>Asal: dalam negeri</h3><p>Inflasi dalam negeri (domestic inflation) berasal dari masalah di dalam negeri, misalnya gagal panen, bencana alam, atau pemerintah mencetak uang baru untuk menutup defisit anggaran.</p></div>
+<div class="card" style="background:var(--ye)"><h3>Asal: luar negeri</h3><p>Inflasi luar negeri (imported inflation) terjadi saat harga barang impor naik karena negara asal atau mitra dagang mengalami inflasi.</p></div></div></div></section>
+
+<section id="sq2" style="background:#fff3a8"><div class="w"><span class="tag">Side quest 2</span><h2>Latihan jenis inflasi</h2><p>Jawab dari materi Level 3 (meter keparahan dan kartu jenis inflasi).</p><div class="card"><div id="g3"></div></div></div></section>
+<section id="l4" style="background:#bfe6ff"><div class="w"><span class="tag">Level 4</span><h2>Cara hitung laju inflasi</h2>
+<p>Indikator yang dipakai adalah Indeks Harga Konsumen (IHK) dari BPS.</p>
+<div class="card"><h3>Laju inflasi = (IHKn − IHKo) ÷ IHKo × 100%</h3><p>IHKn adalah IHK periode yang ditanyakan, IHKo adalah IHK periode sebelumnya.</p>
+<div class="row"><label>IHKo <input id="i0" type="number" step="0.01" value="116.08"></label><label>IHKn <input id="i1" type="number" step="0.01" value="116.56"></label></div>
+<h3 id="ir"></h3><p>Angka awal dari buku: IHK November 2023 = 116,08 dan Desember 2023 = 116,56. Ganti angkanya untuk mencoba sendiri!</p></div>
+<div class="card" style="background:#fff3a8"><h3>Bedah rumus: apa maksud IHKn − IHKo?</h3>
+<p><b>IHK (Indeks Harga Konsumen)</b> adalah angka yang menunjukkan naik-turunnya harga paket barang dan jasa yang biasa dibeli masyarakat. IHK naik berarti harga-harga naik secara umum.</p>
+<div class="row"><span class="chip">IHKn = IHK periode yang ditanyakan (n bisa diingat sebagai now, sekarang)</span><span class="chip">IHKo = IHK periode sebelumnya (o bisa diingat sebagai old, lama)</span></div>
+<ul id="bs" style="padding-left:20px;margin:10px 0;line-height:1.9"></ul>
+<p><b>Kenapa dibagi IHKo?</b> Supaya kenaikannya dibandingkan dengan titik awalnya. Contoh: followers naik 50 dari 1.000 itu naik 5%, tetapi naik 50 dari 100.000 cuma 0,05%. Selisihnya sama, dampaknya beda.</p>
+<p><b>Cara membaca hasil:</b> positif berarti inflasi (harga naik), negatif berarti deflasi (harga turun), nol berarti harga stabil. Hasilnya lalu dicocokkan dengan kategori: ringan, sedang, berat, atau hiperinflasi.</p>
+<p class="fb">Angka di langkah 1 sampai 3 ikut berubah saat kamu mengganti IHK di kalkulator di atas.</p></div>
+<div class="card"><h3>Inflasi Indonesia 2002 sampai 2021</h3><p>Tinggi batang adalah laju inflasi (Bank Indonesia lewat buku siswa; data Desember tiap tahun, 2021 data Oktober). Tap batangnya!</p>
+<div class="ch" id="ch"></div><div class="yr" id="yy"></div>
+<p id="cv" style="margin-top:10px;font-weight:800">Tap salah satu batang ☝️</p>
+<p>Tantangan: cari tahu kenapa inflasi 2005 dan 2008 lebih tinggi daripada tahun lain, lalu diskusikan di kelas.</p></div></div></section>
+
+<section id="sq3" style="background:#b8f5d6"><div class="w"><span class="tag">Side quest 3</span><h2>Latihan hitung IHK</h2><p>Pakai rumus dan bedah rumus di Level 4. Coret-coret dulu boleh!</p><div class="card"><div id="g4"></div></div></div></section>
+<section id="l5"><div class="w"><span class="tag">Level 5</span><h2>Dampak inflasi: siapa cuan, siapa boncos?</h2>
+<p>Inflasi yang wajar dan stabil dibutuhkan untuk pertumbuhan ekonomi. Namun kalau tinggi dan berlebihan, dampaknya terasa:</p>
+<div class="row"><span class="chip">Nilai uang turun 💸</span><span class="chip">Pendapatan riil dan standar hidup turun</span><span class="chip">Pelaku usaha jadi ragu</span><span class="chip">Keputusan konsumsi dan produksi makin sulit</span></div>
+<div class="card" style="background:#fff"><h3>Kenapa ada yang cuan dan ada yang boncos? 🧐</h3>
+<p>Kuncinya: <b>harga naik, tapi tidak semua orang pendapatannya ikut naik.</b></p>
+<div class="g"><div class="card" style="background:var(--mi)"><h3>🤑 Cenderung cuan</h3><ul><li><b>Eksportir atau penjual:</b> harga jual naik, dan harga komoditas ekspor ikut naik.</li><li><b>Debitur (pihak berutang):</b> utang nominalnya tetap, sementara nilai uang turun, jadi bebannya terasa lebih ringan.</li><li><b>Pemilik barang berharga (emas, tanah):</b> harga jualnya ikut naik.</li><li><b>Buruh dengan serikat kuat:</b> bisa menuntut upah naik, bahkan melebihi inflasi.</li><li><b>Spekulan dan berpenghasilan besar:</b> menurut buku termasuk pihak yang diuntungkan.</li></ul></div>
+<div class="card" style="background:var(--pk)"><h3>😭 Cenderung boncos</h3><ul><li><b>Berpenghasilan tetap (gaji, pensiun):</b> penghasilan sama, harga naik, daya beli turun.</li><li><b>Berpenghasilan rendah:</b> kebutuhan pokok makin mahal.</li><li><b>Kreditur (pemberi pinjaman) dan investor:</b> uang yang kembali nilainya sudah turun.</li><li><b>Importir atau pembeli:</b> harga barang impor makin mahal.</li><li><b>Penabung:</b> nilai uang yang disimpan terus tergerus, jadi orang enggan menabung.</li></ul></div></div>
+<p style="margin-top:12px">Efek ke ekonomi: kesenjangan pendapatan melebar, daya saing dan efisiensi perusahaan menurun, impor naik sehingga neraca perdagangan dan cadangan devisa tertekan, dan pengangguran bisa muncul.</p></div>
+<div class="card"><h3>Untung atau rugi? Tentukan nasib tiap tokoh</h3><div id="g5"></div><p class="fb">Catatan buku: sebagian pihak bisa untung kalau inflasinya masih ringan.</p></div></div></section>
+
+<section id="sq4" style="background:#e5dcff"><div class="w"><span class="tag">Side quest 4</span><h2>Latihan dampak inflasi</h2><p>Jawab dari kartu cuan dan boncos di Level 5.</p><div class="card"><div id="g5b"></div></div></div></section>
+<section id="l6" style="background:#ffc2e1"><div class="w"><span class="tag">Level 6</span><h2>Misi: turunin inflasi!</h2>
+<p>Kamu masuk tim pengendali inflasi. Inflasi lagi di 14%. Pilih kebijakan untuk menurunkannya ke bawah 10%.</p>
+<div class="card" style="background:#fff"><h3>Pre-game: kenali jurusnya dulu 🎮</h3>
+<p><b>Akar masalahnya:</b> saat inflasi, uang yang beredar terlalu banyak sementara barangnya segitu-gitu aja, jadi nilai uang turun dan harga naik. Solusinya: kurangi uang beredar atau tambah barang. Ada tiga jalur:</p>
+<details open><summary>🏦 1. Kebijakan moneter (dijalankan Bank Indonesia)</summary>
+<p>Kebijakan moneter adalah pengendalian jumlah uang beredar dan suku bunga oleh bank sentral supaya ekonomi stabil: pertumbuhan terjaga, pengangguran turun, dan inflasi rendah.</p>
+<p><b>Kontraktif (uang ketat, tight money policy)</b> dipakai saat inflasi tinggi untuk mengurangi uang beredar. <b>Ekspansif (uang longgar, easy money policy)</b> dipakai untuk mendorong pertumbuhan ekonomi dengan menambah uang beredar.</p>
+<div style="overflow-x:auto"><table class="tb"><tr><th>Instrumen</th><th>Kontraktif</th><th>Ekspansif</th></tr>
+<tr><td>Suku bunga (politik diskonto)</td><td>Dinaikkan</td><td>Diturunkan</td></tr>
+<tr><td>Operasi Pasar Terbuka (OPT)</td><td>Jual surat berharga</td><td>Beli surat berharga</td></tr>
+<tr><td>Giro Wajib Minimum (GWM)</td><td>Dinaikkan</td><td>Diturunkan</td></tr>
+<tr><td>Kebijakan kredit</td><td>Ketat (selektif)</td><td>Longgar</td></tr></table></div>
+<p style="margin-top:10px"><b>Kenapa kontraktif ampuh?</b></p>
+<ul><li><b>Suku bunga naik:</b> kredit jadi mahal dan menabung makin menarik, jadi pinjaman dan belanja turun.</li><li><b>Jual surat berharga (OPT):</b> uang masyarakat dan bank tersedot ke bank sentral, jadi uang beredar turun.</li><li><b>GWM naik:</b> bank wajib menyimpan cadangan lebih banyak di Bank Indonesia, jadi dana untuk kredit menyusut.</li><li><b>Kredit ketat:</b> syarat pinjaman diperketat, jadi uang baru yang masuk ke masyarakat berkurang.</li><li><b>Moral suasion (imbauan moral):</b> Bank Indonesia mengimbau perbankan menahan kredit tanpa paksaan aturan.</li></ul>
+<p>Hasil akhirnya: uang beredar turun, permintaan turun, kenaikan harga melambat.</p></details>
+<details><summary>🏛️ 2. Kebijakan fiskal (dijalankan pemerintah)</summary><p>Kebijakan fiskal mengatur penerimaan dan pengeluaran anggaran pemerintah. Saat inflasi tinggi: <b>naikkan tarif pajak</b> (uang di kantong masyarakat berkurang, belanja turun), <b>kurangi pengeluaran pemerintah</b> (permintaan agregat turun), dan <b>mengadakan pinjaman pemerintah</b> (menyerap uang yang beredar di masyarakat).</p></details>
+<details><summary>🌾 3. Kebijakan sektor riil dan lainnya</summary><p>Pemerintah menjalankan program nyata untuk mengendalikan harga dan produksi: <b>menambah produksi</b> atau jumlah barang di pasar (pasokan naik, harga tertekan) dan <b>menetapkan harga tertinggi</b> untuk barang tertentu supaya harganya tidak melambung.</p></details></div>
+<div class="card"><h3>Latihan kilat: cek pemahaman kebijakan 🎯</h3><div id="g6"></div></div>
+<div class="card" id="gc"><h3 id="gt"></h3><div class="row" id="tl"></div><button class="b" id="gr" style="background:#fff">Reset</button>
+<p class="fb">Simulasi sederhana untuk gambaran. Di dunia nyata, tiap kebijakan butuh waktu dan punya konsekuensi.</p></div>
+<p>Intinya: Bank Indonesia memakai kebijakan moneter (mengurangi uang beredar), pemerintah memakai kebijakan fiskal (pajak dan belanja), dan keduanya dibantu kebijakan sektor riil yang menjaga pasokan dan harga.</p></div></section>
+
+<section id="deep" style="background:#e5dcff"><div class="w"><span class="tag">Level 7</span><h2>Deep dive: paham sampai akarnya</h2>
+<p>Buka semua kartu materi di bawah. Checkpoint baru terbuka setelah semuanya kamu baca.</p>
+<div class="bub"><small>Dina</small>Kak, kok harga satu barang naik dibilang belum inflasi?</div>
+<div class="bub me"><small>Kak Ekon</small>Karena inflasi itu kenaikan harga banyak barang secara terus-menerus, makanya diukur pakai indeks harga.</div>
+<div id="kd">
+<details><summary>📏 Tiga alat ukur inflasi</summary><p><b>IHK (Indeks Harga Konsumen)</b> mengukur biaya paket barang dan jasa yang dibeli konsumen. <b>IHP (Indeks Harga Produsen)</b> mengukur harga barang yang dibeli produsen (bahan mentah dan barang setengah jadi). <b>GNP deflator (deflator Produk Nasional Bruto)</b> mencakup harga semua barang dan jasa yang diproduksi. Di Indonesia inflasi dihitung Badan Pusat Statistik (BPS), dan IHK adalah indikator yang paling sering dipakai. Rumusnya serupa: laju = (indeks sekarang − indeks sebelumnya) ÷ indeks sebelumnya × 100%.</p></details>
+<details><summary>🌤️ Sisi terang: inflasi ringan</summary><p>Inflasi rendah dan stabil menjadi prasyarat pertumbuhan ekonomi. Pengusaha bisa memperoleh pendapatan lebih besar, pemilik emas atau barang berharga nilainya ikut naik, buruh dengan serikat kuat bisa menuntut upah naik, dan harga komoditas ekspor ikut naik.</p></details>
+<details><summary>⛈️ Sisi gelap: inflasi tinggi</summary><p>Orang berpenghasilan tetap, investor, dan kreditur dirugikan. Daya saing dan efisiensi perusahaan turun karena biaya produksi tinggi, impor meningkat sehingga neraca perdagangan dan cadangan devisa tertekan, pengangguran bisa muncul, kesenjangan pendapatan melebar, dan orang jadi enggan menabung.</p></details>
+<details><summary>🏦 Moneter kontraktif vs ekspansif</summary><p><b>Kontraktif (uang ketat)</b> dipakai saat inflasi tinggi: suku bunga naik, jual surat berharga, giro wajib minimum (GWM) naik, kredit ketat. <b>Ekspansif (uang longgar)</b> untuk mendorong pertumbuhan: suku bunga turun, beli surat berharga, GWM turun, kredit longgar. Instrumen Bank Indonesia: politik diskonto, operasi pasar terbuka, giro wajib minimum, dan kebijakan kredit.</p></details>
+<details><summary>💸 Uang beredar dan nilai uang</summary><p>Inflasi sering terjadi saat uang yang beredar terlalu banyak sementara jumlah barang tetap. Nilai uang turun, jadi harga naik. Makanya obat utama inflasi lewat kebijakan moneter adalah mengurangi uang beredar, dan lewat kebijakan sektor riil adalah menambah barang.</p></details>
+<details><summary>🧺 IHK dengan metode agregatif</summary><p>Metode agregatif tidak tertimbang menjumlahkan harga semua barang di keranjang, lalu membandingkan harga sekarang dengan tahun dasar: <b>IHK = jumlah harga sekarang ÷ jumlah harga tahun dasar × 100</b>. Tahun dasar selalu bernilai 100. Contoh: Rp51.500 ÷ Rp46.000 × 100 = 111,96, jadi laju inflasi = 111,96 − 100 = 11,96%.</p></details>
+<details><summary>🔁 Peta alur: dari penyebab sampai solusi</summary><p>Penyebab (tarikan permintaan atau kenaikan biaya) → harga naik secara umum dan terus-menerus (inflasi, diukur lewat IHK) → dampak (nilai uang turun, ada yang cuan dan ada yang boncos) → solusi (moneter, fiskal, sektor riil) → inflasi turun dan harga stabil.</p></details>
+</div>
+<div class="card"><h3>Studi kasus: IHK keranjang belanja</h3><p>Metode agregatif sederhana dengan tahun dasar 2021. Angka awal diambil dari contoh di buku. Ubah harganya dan lihat laju inflasi 2023.</p><table class="tb" id="kt"></table><h3 id="kr"></h3></div>
+<div class="card lock" id="cp2"><h3>Checkpoint 7A: soal tambahan 🔒</h3><div id="g8b"></div></div>
+<div class="card lock" id="cp"><h3>Checkpoint Level 7 🔒</h3><div id="g8"></div></div></div></section>
+<section id="boss"><div class="w"><span class="tag">Boss battle</span><h2>Siap lawan boss? 6 soal terakhir</h2>
+<div class="card" id="g7"></div><div class="card" id="res" hidden></div></div></section>
+
+<section id="boss2" style="background:var(--ink);color:#fff"><div class="w"><span class="tag">Boss battle ronde 2</span><h2>Ronde 2: 7 soal campuran</h2><p>Semua materi dipakai di sini. Jawab dengan teliti ya.</p><div class="card" id="g9"></div><div class="card" id="res2" hidden></div></div></section>
+
+<section id="rapor" style="background:#fff3a8"><div class="w"><span class="tag">Rapor EXP</span><h2>Laporan evaluasi belajarmu</h2>
+<div class="card"><h3 id="rv" style="font-size:28px"></h3>
+<div class="xp" style="max-width:none"><i id="rx" style="background:var(--pk)"></i><span id="rxt"></span></div>
+<h3 id="rn" style="margin-top:12px"></h3><div id="bd"></div><p class="fb" id="bg"></p>
+<div class="row"><label>Nama <input id="nm" type="text" placeholder="Namamu" style="font:inherit;font-weight:700;padding:6px 10px;border:3px solid var(--ink);border-radius:10px"></label></div>
+<div class="row"><button class="b" id="bcopy">Salin laporan</button><button class="b" id="bprint" style="background:var(--sk)">Cetak atau simpan PDF</button><button class="b" id="bform" style="background:var(--mi)">Kumpulkan lewat Google Form</button></div><p class="fb">Tombol hijau membuka Google Form dengan data rapormu sudah terisi. Isi namamu dulu, lalu tekan Kirim di Google Form.</p></div>
+<div class="card"><h3>Aturan penilaian</h3><p>Nilai = EXP ÷ EXP maksimum × 100. Predikat: 85 ke atas Sangat baik (A), 75 sampai 84 Baik (B), 60 sampai 74 Cukup (C), di bawah 60 Perlu ulang (D). Level naik sesuai nilai:</p><div class="row" id="ld"></div></div></div></section>
+
+<section id="profil" style="background:#bfe6ff"><div class="w"><span class="tag">Profil pembuat</span><h2>Kenalan sama pembuatnya</h2>
+<div class="card" style="display:flex;gap:18px;flex-wrap:wrap;align-items:center"><div class="av">MH</div><div>
+<h3 style="font-size:24px">Marcel Hasan Pangestu</h3><p style="margin:0">Mahasiswa Pendidikan Ekonomi</p><p style="margin:0">NIM: F1031251005</p><p style="margin:0">Email: <a href="mailto:f1031251005@student.untan.ac.id">f1031251005@student.untan.ac.id</a></p></div></div>
+<p>InflasiLab dibuat sebagai tugas pengembangan media pembelajaran berbasis website dengan materi Inflasi.</p></div></section>
+
+<footer class="w" style="padding:24px 18px 40px"><p><b>Sumber materi:</b> Ekonomi untuk SMA/MA Kelas XI (Bab III Uang, Inflasi, dan Kebijakan Moneter); Buku Siswa Ekonomi untuk SMA/SMK Kelas XI (Bab 4 Teori Uang, Indeks Harga, dan Inflasi); Ekonomi SMA Kelas 11 Semester 2. Data inflasi: Bank Indonesia 2021 lewat buku siswa. Harga di struk hanya contoh ilustrasi.</p><p>Dibuat oleh Marcel, Pendidikan Ekonomi.</p></footer>
+
+<script>
+const $=s=>document.querySelector(s),rp=n=>'Rp'+Math.round(n).toLocaleString('id-ID'),pc=n=>n.toFixed(2).replace('.',',')+'%';
+let xp=0,tot=0;
+const upd=()=>{$('#xp').style.width=Math.min(100,xp/(tot*10)*100)+'%';$('#xpt').textContent=xp+' XP'};
+function quiz(id,items,done){const el=$(id);let n=0,ok=0;tot+=items.length;
+ items.forEach(it=>{const d=document.createElement('div');d.className='q';
+  d.innerHTML='<p><b>'+it.q+'</b></p><div class="row">'+it.o.map((t,i)=>'<button class="b" data-i="'+i+'">'+t+'</button>').join('')+'</div><p class="fb" hidden></p>';
+  d.onclick=e=>{const b=e.target.closest('button');if(!b||d.dataset.d)return;d.dataset.d=1;
+   const g=+b.dataset.i===it.a;b.classList.add(g?'ok':'no');
+   if(!g)d.querySelectorAll('button')[it.a].classList.add('ok');
+   const f=d.querySelector('.fb');f.hidden=false;f.textContent=(g?'Bener! ':'Belum pas. ')+it.e;
+   if(g){ok++;xp+=10;upd()}
+   if(++n===items.length&&done)done(ok)};
+  el.append(d)})}
+const cat=v=>v<10?['Ringan','😌','#3ddc97']:v<=30?['Sedang','😬','#ffe14d']:v<=100?['Berat','😱','#ff4fa3']:['Hiperinflasi','💀','#b9b3c9'];
+
+/* Hero: struk time machine */
+const items=[['Boba',25000],['Mie ayam',20000],['Kuota',30000],['Ojek',15000],['Kopi',10000]];let yr=0;
+function rc(){const r=$('#rt').value/100,f=Math.pow(1+r,yr);let t=0;
+ $('#rl').innerHTML=items.map(x=>{const v=Math.round(x[1]*f/100)*100;t+=v;return '<li><span>'+x[0]+'</span><b>'+rp(v)+'</b></li>'}).join('');
+ $('#rtv').textContent=$('#rt').value+'%';$('#yr').textContent=yr;$('#tt').textContent=rp(t);
+ const s=$('#sm');s.textContent=yr?'Rp100.000 kamu kini cuma cukup buat '+Math.round(100000/t*100)+'% belanjaan yang sama':'Awal: Rp100.000 pas buat semua ini';
+ s.classList.remove('pop');void s.offsetWidth;if(yr)s.classList.add('pop')}
+$('#fw').onclick=()=>{yr++;rc()};$('#rs').onclick=()=>{yr=0;rc()};$('#rt').oninput=rc;rc();
+
+/* Level 1 */
+quiz('#g1',[
+{q:'Harga cabai naik drastis, tapi cuma di satu hari pasar.',o:['Inflasi','Bukan inflasi'],a:1,e:'Hanya satu jenis barang dan sesaat, jadi belum termasuk inflasi.'},
+{q:'Sebulan ini harga beras, minyak goreng, ongkos transport, dan tarif listrik naik bareng, dan bulan depan masih naik.',o:['Inflasi','Bukan inflasi'],a:0,e:'Harga naik, bersifat umum, dan terus-menerus: tiga kriteria terpenuhi.'},
+{q:'Harga tiket konser naik karena artisnya lagi viral.',o:['Inflasi','Bukan inflasi'],a:1,e:'Cuma satu jenis barang, bukan kenaikan harga yang bersifat umum.'}]);
+
+/* Level 2 */
+const T=['<h3>Inflasi tarikan permintaan (demand pull inflation)</h3><p>Permintaan barang dan jasa lebih tinggi daripada kapasitas produksi, jadi barang jadi langka dan harga ditarik naik. Biasanya muncul saat ekonomi tumbuh pesat (lapangan kerja banyak, pendapatan naik) atau menjelang hari besar seperti Lebaran, Natal, dan Tahun Baru.</p><p><b>Contoh:</b> harga sembako melonjak menjelang Lebaran.</p><p><b>Biar gampang ingat:</b> demand = permintaan, pull = menarik. Permintaan yang tinggi menarik harga ikut naik.</p>',
+'<h3>Inflasi kenaikan biaya produksi (cost push inflation)</h3><p>Biaya produksi naik, jadi produsen menaikkan harga jual. Pemicunya: kenaikan BBM atau upah, depresiasi nilai tukar yang bikin barang impor mahal, kenaikan harga komoditas yang diatur pemerintah (BBM, tarif listrik), serta bencana alam yang mengganggu distribusi.</p><p><b>Contoh:</b> BBM naik, ongkos angkut naik, lalu harga hampir semua barang ikut naik.</p><p><b>Biar gampang ingat:</b> cost = biaya, push = mendorong. Biaya produksi yang naik mendorong harga jual ikut naik.</p>'];
+document.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-t]').forEach(x=>x.classList.toggle('on',x===b));$('#tp').innerHTML=T[b.dataset.t]});
+$('#tp').innerHTML=T[0];
+quiz('#g2',[
+{q:'Harga BBM dan tarif listrik naik.',o:['Tarikan permintaan (demand pull)','Kenaikan biaya (cost push)'],a:1,e:'Komoditas yang diatur pemerintah menaikkan biaya produksi.'},
+{q:'Belanja Lebaran bikin permintaan sembako melonjak.',o:['Tarikan permintaan (demand pull)','Kenaikan biaya (cost push)'],a:0,e:'Permintaan melebihi pasokan, jadi harga ditarik naik.'},
+{q:'Banjir bikin distribusi barang terhambat.',o:['Tarikan permintaan (demand pull)','Kenaikan biaya (cost push)'],a:1,e:'Bencana alam mengganggu distribusi dan mengurangi pasokan (masuk kenaikan biaya produksi atau cost push, menurut buku).'},
+{q:'Pengeluaran pemerintah naik, permintaan agregat ikut naik.',o:['Tarikan permintaan (demand pull)','Kenaikan biaya (cost push)'],a:0,e:'Permintaan agregat naik lebih cepat daripada penawaran.'}]);
+
+/* Level 3 */
+function mt(){const v=+$('#mr').value,c=cat(v);$('#mc').style.background=c[2];$('#mt').textContent=v+'% per tahun = inflasi '+c[0].toLowerCase()+' '+c[1]}
+$('#mr').oninput=mt;mt();
+
+/* Level 4 */
+function ih(){const a=+$('#i0').value,b=+$('#i1').value,o=$('#ir');
+ if(!(a>0)||!(b>0)){o.textContent='Isi kedua IHK dulu ya';return}
+ const r=(b-a)/a*100;o.textContent=r<0?pc(r)+' = harga turun (deflasi)':pc(r)+' = inflasi '+cat(r)[0].toLowerCase()}
+$('#i0').oninput=ih;$('#i1').oninput=ih;ih();
+const D=[9.9,5.16,6.4,17.11,6.6,6.59,11.06,2.78,6.96,3.79,4.3,8.38,8.36,3.35,3.02,3.61,3.13,2.72,1.68,1.66];
+D.forEach((v,i)=>{const y=2002+i,b=document.createElement('button');
+ b.style.setProperty('--h',(v/18*100)+'%');b.style.setProperty('--c',cat(v)[2]);
+ b.setAttribute('aria-label',y+': '+pc(v));
+ b.onclick=()=>{$('#cv').textContent=y+': '+pc(v)+' (inflasi '+cat(v)[0].toLowerCase()+')'};
+ $('#ch').append(b);const s=document.createElement('span');s.textContent="'"+String(y).slice(2);$('#yy').append(s)});
+
+/* Level 5 */
+const UR=['Untung 🤑','Rugi 😭'];
+quiz('#g5',[
+{q:'Bu Melina, ASN dengan gaji tetap tiap bulan.',o:UR,a:1,e:'Gaji tetap tidak ikut naik saat harga naik, jadi daya belinya turun.'},
+{q:'Eksportir yang menjual barang ke luar negeri.',o:UR,a:0,e:'Buku menggolongkan eksportir atau penjual sebagai pihak yang diuntungkan.'},
+{q:'Debitur, yaitu orang yang punya utang.',o:UR,a:0,e:'Nilai uang turun, jadi beban utang terasa lebih ringan.'},
+{q:'Kreditur, yaitu pihak yang memberi pinjaman.',o:UR,a:1,e:'Uang yang dikembalikan nilainya sudah turun.'},
+{q:'Pak Miftah, pensiunan guru dengan uang pensiun tetap.',o:UR,a:1,e:'Pendapatan tetap, sementara harga-harga terus naik.'},
+{q:'Importir yang membeli barang dari luar negeri.',o:UR,a:1,e:'Buku menggolongkan importir atau pembeli sebagai pihak yang dirugikan.'}]);
+
+/* Level 6 */
+const TL=[['Naikkan suku bunga (BI)',2],['Jual surat berharga (BI)',2],['Naikkan GWM (BI)',1.5],['Kredit lebih ketat (BI)',1.5],['Naikkan pajak (pemerintah)',1.5],['Kurangi belanja negara (pemerintah)',1.5],['Genjot produksi dan pasokan',2],['Tetapkan harga tertinggi',1]];
+let lv=14;
+function gg(){const c=cat(lv);$('#gc').style.background=c[2];$('#gt').textContent='Inflasi sekarang '+String(lv).replace('.',',')+'% = '+c[0].toLowerCase()+' '+c[1]+(lv<10?' Target tercapai! 🎉':'')}
+TL.forEach(t=>{const b=document.createElement('button');b.className='b';b.textContent=t[0];
+ b.onclick=()=>{lv=Math.max(0,lv-t[1]);b.disabled=true;gg()};$('#tl').append(b)});
+$('#gr').onclick=()=>{lv=14;document.querySelectorAll('#tl button').forEach(b=>{b.disabled=false});gg()};gg();
+
+/* Boss battle */
+quiz('#g7',[
+{q:'Kenaikan harga disebut inflasi jika...',o:['Hanya terjadi pada satu barang','Bersifat umum dan terus-menerus','Terjadi sehari saja','Hanya terjadi pada barang impor'],a:1,e:'Kriterianya: harga naik, bersifat umum, dan terus-menerus.'},
+{q:'Laju inflasi 12% per tahun termasuk...',o:['Ringan','Sedang','Berat','Hiperinflasi'],a:1,e:'Inflasi sedang berkisar antara 10% sampai 30%.'},
+{q:'IHK bulan lalu 110 dan bulan ini 111,1. Berapa laju inflasinya?',o:['0,1%','1%','10%','11%'],a:1,e:'(111,1 − 110) ÷ 110 × 100% = 1%.'},
+{q:'Kenaikan harga BBM yang mendorong naiknya harga banyak barang disebut...',o:['Tarikan permintaan (demand pull)','Kenaikan biaya (cost push)','Inflasi luar negeri (imported inflation)','Hiperinflasi'],a:1,e:'BBM menaikkan biaya produksi, jadi masuk inflasi kenaikan biaya produksi (cost push).'},
+{q:'Langkah Bank Indonesia untuk menekan inflasi adalah...',o:['Menurunkan suku bunga','Membeli surat berharga','Menaikkan suku bunga','Menurunkan giro wajib minimum (GWM)'],a:2,e:'Suku bunga naik, uang beredar berkurang, inflasi tertekan.'},
+{q:'Pihak yang paling dirugikan inflasi adalah...',o:['Orang berpenghasilan tetap','Eksportir','Debitur','Spekulan'],a:0,e:'Pendapatan tetap tidak ikut naik saat harga naik.'}],
+ok=>{const r=$('#res');r.hidden=false;r.innerHTML='<h3>Skor kamu: '+ok+'/6 '+(ok===6?'👑 Sultan Ekonomi!':ok>=4?'😎 Gen Z cuan!':'💪 Baca lagi level di atas, lalu coba lagi')+'</h3><button class="b" onclick="location.reload()">Main lagi</button>'});
+upd();
+</script>
+<div id="sp"></div>
+<aside class="dock"><a href="#peta">🗺️ Misi</a><a href="#rapor" id="dl">Lv.1</a><a href="#profil">👤 Profil</a></aside><div class="toast" id="toast" role="status"></div>
+<script>
+(function(){
+/* === PENGATURAN GOOGLE FORM (diisi pembuat, hanya sekali) ===
+   1) Buat Google Form dengan 6 pertanyaan jawaban singkat: Nama, Level, EXP, Nilai, Predikat, Rincian.
+   2) Titik tiga di kanan atas > Dapatkan link terisi otomatis. Isi jawabannya persis: __NAMA__, __LEVEL__, __EXP__, __NILAI__, __PREDIKAT__, __RINCIAN__
+   3) Klik Dapatkan link, salin, lalu tempel di antara tanda kutip di bawah ini. */
+const GFORM='PASTE_LINK_GOOGLE_FORM_TERISI_OTOMATIS_DI_SINI';
+const LV=[['NPC Ekonomi',0],['Anak Baru Ngerti',15],['Pencari Cuan',30],['Analis Receh',45],['Gubernur BI Jr.',60],['Menkeu Muda',75],['Sultan Inflasi',90]];
+const SEC=[['#g1','Level 1: Konsep','🕵️ Detektif Fakta'],['#g1b','Side quest 1: Konsep','🔎 Anak Teliti'],['#g2b','Level 2: Pemanasan','🔥 Pemanas Ulung'],['#g2','Level 2: Penyebab','🧠 Paham Penyebab'],['#g3','Side quest 2: Jenis','🌡️ Ahli Jenis'],['#g4','Side quest 3: Hitung IHK','🧮 Jagoan Hitung'],['#g5','Level 5: Dampak','⚖️ Adil Rasa'],['#g5b','Side quest 4: Dampak','🪙 Peka Dampak'],['#g6','Level 6: Kebijakan','🏦 Master Kebijakan'],['#g8b','Level 7: Checkpoint 7A','🧪 Peneliti Muda'],['#g8','Level 7: Deep dive','🤿 Deep Diver'],['#g7','Boss battle','👑 Boss Slayer'],['#g9','Boss battle ronde 2','🏆 Legenda Inflasi']];
+let tm,last=0;
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tm);tm=setTimeout(()=>t.classList.remove('on'),2600)}
+
+/* Studi kasus IHK keranjang */
+const KB=[['A',13500,15000],['B',16000,18000],['C',9500,11000],['D',7000,7500]];
+$('#kt').innerHTML='<tr><th>Barang</th><th>Harga 2021</th><th>Harga 2023</th></tr>'+KB.map(k=>'<tr><td>'+k[0]+'</td><td><input type="number" class="kb" value="'+k[1]+'"></td><td><input type="number" class="kb" value="'+k[2]+'"></td></tr>').join('');
+function kc(){const v=[...document.querySelectorAll('.kb')].map(x=>+x.value);let a=0,b=0;for(let i=0;i<v.length;i+=2){a+=v[i];b+=v[i+1]}
+ const o=$('#kr');if(!(a>0)){o.textContent='Isi harganya dulu ya';return}
+ const i=b/a*100,l=i-100;o.textContent='IHK 2023 = '+pc(i).slice(0,-1)+', laju inflasi = '+pc(l)+' (inflasi '+cat(l)[0].toLowerCase()+')'}
+$('#kt').oninput=kc;kc();
+
+/* Kartu materi + checkpoint terkunci */
+const ds=[...document.querySelectorAll('#kd details')];let op=0;
+ds.forEach(d=>d.addEventListener('toggle',()=>{if(d.open&&!d.dataset.o){d.dataset.o=1;if(++op===ds.length){$('#cp').classList.remove('lock');$('#cp h3').textContent='Checkpoint Level 7 🔓';toast('Checkpoint terbuka! 🔓')}}}));
+quiz('#g8',[
+{q:'Alat ukur inflasi yang paling sering dipakai untuk paket barang dan jasa konsumen adalah...',o:['IHK (Indeks Harga Konsumen)','IHP (Indeks Harga Produsen)','Kurs','Suku bunga'],a:0,e:'IHK mengukur biaya paket barang dan jasa yang dibeli konsumen.'},
+{q:'Langkah moneter kontraktif yang tepat saat inflasi tinggi adalah...',o:['Menurunkan giro wajib minimum (GWM)','Memberlakukan kredit ketat','Membeli surat berharga','Memberi kredit longgar'],a:1,e:'Kredit ketat mengurangi uang beredar, sejalan dengan kebijakan uang ketat.'},
+{q:'Inflasi tinggi bisa menekan neraca perdagangan karena...',o:['Impor cenderung meningkat','Ekspor pasti naik','Pajak otomatis turun','Uang beredar menyusut'],a:0,e:'Harga dalam negeri naik, impor meningkat, sehingga neraca perdagangan dan cadangan devisa tertekan.'},
+{q:'Harga keranjang 2021 Rp46.000 menjadi Rp51.500 di 2023. Laju inflasinya sekitar...',o:['5,5%','11,96%','111,96%','12,5%'],a:1,e:'IHK = 51.500 ÷ 46.000 × 100 = 111,96, jadi laju = 11,96% (inflasi sedang).'}]);
+
+/* Rapor EXP */
+function calc(){const r=SEC.map(s=>{const q=[...document.querySelectorAll(s[0]+' .q')],a=q.filter(x=>x.dataset.d),c=a.filter(x=>!x.querySelector('.no'));return{n:s[1],b:s[2],t:q.length,a:a.length,c:c.length}});
+ const mx=tot*10,sc=Math.round(xp/mx*100);let l=0;LV.forEach((x,i)=>{if(sc>=x[1])l=i});
+ const p=sc>=85?['A','Sangat baik']:sc>=75?['B','Baik']:sc>=60?['C','Cukup']:['D','Perlu ulang'];return{r,mx,sc,l,p}}
+function rep(){const c=calc();
+ $('#rv').textContent='Lv.'+(c.l+1)+' '+LV[c.l][0];$('#rx').style.width=c.sc+'%';$('#rxt').textContent=xp+' / '+c.mx+' EXP';
+ $('#rn').textContent='Nilai: '+c.sc+' (predikat '+c.p[0]+', '+c.p[1]+')';$('#dl').textContent='Lv.'+(c.l+1)+', '+xp+' EXP';
+ $('#bd').innerHTML=c.r.map(x=>'<div class="row" style="justify-content:space-between;margin:8px 0 2px"><span>'+x.n+(x.c===x.t?' '+x.b:'')+'</span><b>'+(x.a<x.t?x.a+'/'+x.t+' dijawab, ':'')+x.c+'/'+x.t+' benar</b></div><div class="mb"><i style="width:'+x.c/x.t*100+'%"></i></div>').join('');
+ const w=c.r.filter(x=>x.c/x.t<.6).map(x=>x.n);$('#bg').textContent=w.length?'Perlu diulang: '+w.join(', '):'Semua materi sudah aman, pertahankan!';
+ $('#ld').innerHTML=LV.map((x,i)=>'<span class="chip"'+(i===c.l?' style="background:var(--ye)"':'')+'>Lv.'+(i+1)+' '+x[0]+' (nilai '+x[1]+'+)</span>').join('');
+ if(c.l>last)toast('Level up! Lv.'+(c.l+1)+' '+LV[c.l][0]+' 🎉');last=c.l}
+function txt(){const c=calc();return['LAPORAN EXP - InflasiLab','Nama: '+($('#nm').value||'-'),'Tanggal: '+new Date().toLocaleDateString('id-ID'),'Level: Lv.'+(c.l+1)+' '+LV[c.l][0],'EXP: '+xp+'/'+c.mx,'Nilai: '+c.sc+' (predikat '+c.p[0]+', '+c.p[1]+')','Rincian:'].concat(c.r.map(x=>'- '+x.n+': '+x.c+'/'+x.t+' benar')).join('\n')}
+$('#bcopy').onclick=()=>(navigator.clipboard?navigator.clipboard.writeText(txt()):Promise.reject()).then(()=>toast('Laporan tersalin ✅'),()=>toast('Gagal menyalin, coba cetak saja'));
+$('#bprint').onclick=()=>window.print();
+$('#bform').onclick=()=>{
+ if(GFORM.indexOf('docs.google.com/forms')<0){toast('Link Google Form belum dipasang di kode');return}
+ const nm=($('#nm').value||'').trim();if(!nm){toast('Isi namamu dulu ya');$('#nm').focus();return}
+ const c=calc(),v={__NAMA__:nm,__LEVEL__:'Lv.'+(c.l+1)+' '+LV[c.l][0],__EXP__:xp+'/'+c.mx,__NILAI__:c.sc,__PREDIKAT__:c.p[0]+' ('+c.p[1]+')',__RINCIAN__:c.r.map(x=>x.n+': '+x.c+'/'+x.t).join('; ')};
+ let u=GFORM;for(const k in v)u=u.split(k).join(encodeURIComponent(v[k]));
+ if(!window.open(u,'_blank'))location.href=u;toast('Google Form terbuka, tekan Kirim di sana ✅')};
+document.addEventListener('click',()=>setTimeout(rep,0));
+function st(){const a=+$('#i0').value,b=+$('#i1').value,f=(n,d)=>n.toFixed(d).replace('.',','),o=$('#bs');
+ if(!(a>0)||!(b>0)){o.innerHTML='<li>Isi kedua IHK di kalkulator dulu ya.</li>';return}
+ const d=b-a,r=d/a;
+ o.innerHTML='<li><b>Langkah 1, cari selisih:</b> IHKn − IHKo = '+f(b,2)+' − '+f(a,2)+' = <b>'+f(d,2)+'</b> poin</li><li><b>Langkah 2, bagi dengan IHKo:</b> '+f(d,2)+' ÷ '+f(a,2)+' = <b>'+f(r,4)+'</b></li><li><b>Langkah 3, kali 100%:</b> '+f(r,4)+' × 100% = <b>'+f(r*100,2)+'%</b></li>'}
+$('#i0').addEventListener('input',st);$('#i1').addEventListener('input',st);st();
+upd();rep();
+})();
+</script>
+<script>
+(function(){
+const TK=['Tarikan permintaan (demand pull)','Kenaikan biaya (cost push)'],UR=['Untung 🤑','Rugi 😭'],IR=['Ringan','Sedang','Berat','Hiperinflasi'],SD=['Inflasi dalam negeri (domestic inflation)','Inflasi luar negeri (imported inflation)'];
+const M=a=>a.map(x=>({q:x[0],o:x[1],a:x[2],e:x[3]}));
+quiz('#g1b',M([
+['Inflasi dihitung minimal...',['Per hari','Per bulan','Per jam','Per dekade'],1,'Inflasi dihitung minimal bulanan, kenaikan harian belum masuk hitungan.'],
+['Harga naik terus tetapi uangmu tetap segitu. Nilai uangmu...',['Turun','Naik','Tetap','Berlipat'],0,'Harga naik berarti nilai uang turun: barang yang bisa dibeli makin sedikit.'],
+['Mana yang BUKAN syarat inflasi?',['Harga naik','Bersifat umum','Terus-menerus','Hanya terjadi di bulan Desember'],3,'Tiga syaratnya: harga naik, bersifat umum, dan terus-menerus.']]));
+quiz('#g2b',M([
+['Pendapatan masyarakat naik dan lapangan kerja melimpah, sehingga belanja meningkat.',TK,0,'Belanja yang naik menarik permintaan, jadi ini tarikan permintaan.'],
+['Rupiah melemah, bahan baku impor jadi mahal, biaya produksi naik.',TK,1,'Biaya produksi naik mendorong harga jual, jadi ini kenaikan biaya (cost push).'],
+['Upah buruh naik sehingga biaya produksi pabrik naik.',TK,1,'Upah naik termasuk pemicu kenaikan biaya produksi.'],
+['Permintaan agregat adalah...',['Total permintaan seluruh masyarakat akan barang dan jasa','Permintaan satu orang untuk satu barang','Jumlah barang yang diproduksi pabrik','Total utang pemerintah'],0,'Agregat artinya total: seluruh permintaan masyarakat akan barang dan jasa.']]));
+quiz('#g3',M([
+['Laju inflasi 45% per tahun termasuk inflasi...',IR,2,'Inflasi berat berkisar 30% sampai 100% per tahun.'],
+['Laju inflasi 150% per tahun disebut...',IR,3,'Di atas 100% per tahun disebut hiperinflasi.'],
+['Gagal panen di dalam negeri memicu...',SD,0,'Gagal panen adalah masalah dalam negeri, jadi inflasi dalam negeri.'],
+['Harga barang impor naik karena negara mitra dagang mengalami inflasi. Ini...',SD,1,'Asal kenaikan harganya dari luar negeri, jadi inflasi luar negeri.'],
+['Inflasi leher botol (bottleneck) terjadi saat...',['Kapasitas produksi mentok, tetapi permintaan masih banyak','Pemerintah mencetak uang baru','Harga barang impor turun','Permintaan turun drastis'],0,'Produksi sudah penuh, sementara permintaan masih tinggi.']]));
+quiz('#g4',M([
+['IHK bulan lalu 120, bulan ini 126. Laju inflasinya?',['5%','6%','0,5%','50%'],0,'(126 − 120) ÷ 120 × 100% = 5%.'],
+['IHK Januari 200, Februari 198. Hasilnya...',['Inflasi 1%','Deflasi 1%','Inflasi 0,99%','Harga stabil'],1,'(198 − 200) ÷ 200 × 100% = −1%. Negatif berarti harga turun (deflasi).'],
+['Dalam rumus IHKn − IHKo, IHKo adalah...',['IHK periode sebelumnya','IHK periode yang ditanyakan','Selisih IHK','Tahun dasar saja'],0,'o = old, yaitu IHK periode sebelumnya.'],
+['Kenapa selisih IHK dibagi IHKo?',['Supaya kenaikan dibandingkan dengan titik awalnya','Supaya hasilnya selalu positif','Supaya angkanya jadi 100','Supaya tidak perlu IHK'],0,'Selisih yang sama punya dampak beda tergantung titik awalnya, seperti contoh followers.'],
+['IHK naik dari 125 ke 150. Jenis inflasinya...',IR,1,'(150 − 125) ÷ 125 × 100% = 20%, masuk inflasi sedang (10% sampai 30%).']]));
+quiz('#g5b',M([
+['Pak Joni menyimpan hartanya dalam bentuk emas dan tanah.',UR,0,'Harga barang berharga ikut naik saat inflasi.'],
+['Pekerja berpenghasilan rendah yang membeli kebutuhan pokok.',UR,1,'Kebutuhan pokok makin mahal, sedangkan penghasilannya kecil.'],
+['Buruh anggota serikat kuat yang berhasil menuntut upah naik melebihi inflasi.',UR,0,'Serikat kuat bisa menuntut upah naik, bahkan melebihi inflasi.'],
+['Dampak inflasi tinggi bagi perusahaan adalah...',['Daya saing dan efisiensi menurun','Biaya produksi turun','Ekspor pasti naik','Pajak otomatis turun'],0,'Biaya produksi tinggi membuat efisiensi dan daya saing menurun.']]));
+quiz('#g6',M([
+['Kebijakan moneter dijalankan oleh...',['Bank Indonesia','Pemerintah lewat anggaran','Para pedagang pasar','Perusahaan swasta'],0,'Kebijakan moneter dikendalikan bank sentral, yaitu Bank Indonesia.'],
+['Kebijakan moneter kontraktif dikenal juga sebagai...',['Kebijakan uang ketat (tight money)','Kebijakan uang longgar (easy money)','Kebijakan anggaran berimbang','Kebijakan harga tertinggi'],0,'Kontraktif = uang ketat, dipakai saat inflasi tinggi.'],
+['Bank Indonesia menjual surat berharga lewat Operasi Pasar Terbuka. Efeknya...',['Uang beredar berkurang','Uang beredar bertambah','Pajak naik','Harga pasti turun hari itu juga'],0,'Uang masyarakat dan bank tersedot ke bank sentral, jadi uang beredar turun.'],
+['Giro Wajib Minimum (GWM) dinaikkan. Dampaknya pada bank...',['Dana yang bisa dipinjamkan berkurang','Bank bebas menyalurkan kredit','Bank berhenti beroperasi','Bunga tabungan dihapus'],0,'Cadangan yang wajib disimpan bertambah, jadi dana untuk kredit menyusut.'],
+['Mana yang termasuk kebijakan fiskal untuk menekan inflasi?',['Menaikkan tarif pajak','Menaikkan suku bunga','Menjual surat berharga','Menaikkan giro wajib minimum (GWM)'],0,'Pajak dan pengeluaran pemerintah adalah ranah fiskal; sisanya moneter.'],
+['Pemerintah menetapkan harga tertinggi untuk barang tertentu. Ini kebijakan...',['Sektor riil','Moneter','Fiskal','Ekspansif'],0,'Harga tertinggi dan penambahan produksi masuk kebijakan sektor riil.']]));
+const ds=[...document.querySelectorAll('#kd details')],cp=$('#cp'),cp2=$('#cp2');
+new MutationObserver(()=>{if(!cp.classList.contains('lock')){cp2.classList.remove('lock');cp2.querySelector('h3').textContent='Checkpoint 7A: soal tambahan 🔓'}}).observe(cp,{attributes:true,attributeFilter:['class']});
+quiz('#g8b',M([
+['Tahun dasar dalam perhitungan IHK selalu bernilai...',['100','0','1','1.000'],0,'Tahun dasar dianggap 100, sebagai pembanding.'],
+['Obat utama inflasi lewat kebijakan moneter adalah...',['Mengurangi uang beredar','Menambah uang beredar','Menghapus semua pajak','Menghapus tahun dasar'],0,'Inflasi muncul saat uang terlalu banyak, jadi uang beredar dikurangi.'],
+['Urutan alur yang benar adalah...',['Penyebab, inflasi, dampak, solusi','Solusi, dampak, inflasi, penyebab','Dampak, penyebab, solusi, inflasi','Inflasi, solusi, penyebab, dampak'],0,'Penyebab memicu inflasi, inflasi berdampak, lalu dicari solusinya.']]));
+quiz('#g9',M([
+['Menjelang Lebaran harga ayam naik karena permintaan melonjak. Ini...',TK,0,'Permintaan yang melonjak menarik harga naik.'],
+['IHK Maret 150, April 153. Laju inflasi April?',['2%','3%','0,3%','20%'],0,'(153 − 150) ÷ 150 × 100% = 2%.'],
+['Paket yang tepat untuk Bank Indonesia menekan inflasi?',['Naikkan suku bunga dan jual surat berharga','Turunkan suku bunga dan beli surat berharga','Turunkan GWM dan longgarkan kredit','Naikkan belanja pemerintah'],0,'Itu ciri kebijakan moneter kontraktif (uang ketat).'],
+['Kebijakan moneter ekspansif dilakukan untuk...',['Mendorong pertumbuhan dengan menambah uang beredar','Mengurangi uang beredar','Menaikkan pajak','Menetapkan harga tertinggi'],0,'Ekspansif = uang longgar untuk mendorong pertumbuhan ekonomi.'],
+['Pensiunan dengan uang pensiun tetap saat inflasi tinggi...',UR,1,'Penghasilan tetap, harga naik, daya beli turun.'],
+['Menaikkan tarif pajak dan mengurangi belanja negara untuk menekan inflasi adalah kebijakan...',['Fiskal','Moneter','Sektor riil','Imported'],0,'Itu pengaturan penerimaan dan pengeluaran pemerintah, yaitu fiskal.'],
+['Moral suasion adalah...',['Imbauan Bank Indonesia kepada perbankan tanpa paksaan aturan','Kenaikan tarif pajak','Penjualan surat berharga','Penetapan harga tertinggi'],0,'Moral suasion berupa imbauan moral dari bank sentral.']]),
+ok=>{const r=$('#res2');r.hidden=false;r.innerHTML='<h3>Skor ronde 2: '+ok+'/7 '+(ok===7?'🏆 Legenda Inflasi!':ok>=5?'😎 Hampir sempurna!':'💪 Ulangi materinya, lalu coba lagi')+'</h3>'});
+
+/* Desain Gen Z */
+$('#top').insertAdjacentHTML('afterbegin','<span class="fl" style="top:8%;right:6%">💸</span><span class="fl" style="top:42%;right:16%;animation-delay:-1.5s">📉</span><span class="fl" style="top:72%;right:5%;animation-delay:-3s">🛒</span>');
+if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.06});document.querySelectorAll('.card').forEach(c=>{c.classList.add('rv');io.observe(c)})}
+const sp=$('#sp');addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-innerHeight;sp.style.width=(h>0?scrollY/h*100:0)+'%'},{passive:true});
+let cb=0;
+function fx(t,x,y){const e=document.createElement('span');e.className='fx';e.textContent=t;e.style.left=Math.max(8,x-50)+'px';e.style.top=(y-30)+'px';document.body.append(e);setTimeout(()=>e.remove(),900)}
+document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('.q .b');if(!b)return;const q=b.closest('.q'),x=e.clientX,y=e.clientY;
+ setTimeout(()=>{if(!q.dataset.d||q.dataset.fx)return;q.dataset.fx=1;
+  if(b.classList.contains('ok')){cb++;fx('+10 EXP ✨'+(cb>2?' 🔥 combo x'+cb:''),x,y)}else{cb=0;q.classList.add('sh')}},0)});
+upd();document.dispatchEvent(new Event('click'));
+})();
+</script>
+</body>
+</html># InflationLab
 Pembelajaran dengan Materi Inflasi
